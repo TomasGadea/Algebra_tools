@@ -1,8 +1,21 @@
+"""
+This is the code of a main function (signatureQ), which given a symetric matrix
+outputs its signature. It's a helpful information when it comes to compute
+extrema in Rn functions by its Hessian matrix.
+
+Algorithm used is inspired in the one proposed in:
+https://math.stackexchange.com/questions/1388421/reference-for-linear-algebra-books-that-teach-reverse-hermite-method-for-symmetr
+"""
+
 import numpy as np
 import sympy as sp
 
 
 def signatureQ(matrix):
+    """Given a sympy matrix Returns a triplet (signature of the matrix) and a
+    numpy array P, the transformation matrix to obtain the diagonalized and
+    normalized matrix of the one given."""
+
     A = np.array(matrix).astype(np.float)
     A = insert_Id(A)
     n = len(A)
